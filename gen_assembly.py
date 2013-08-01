@@ -1,6 +1,9 @@
-
     
-    
+#find_overlap is passed: start-the strgin to be match    
+		#	 arr-all of the strings one per line
+		#	beg is 1 to start
+		#	ck_list is the list of the index of strings already matched
+#returns an array [updated ck_list, new merged string] 		
 def find_overlap(start, arr, beg, ck_list):
   
 	r = len(start)
@@ -20,7 +23,11 @@ def find_overlap(start, arr, beg, ck_list):
 					print first_part, 'new', seq[j:full]
 					ck_list.append(ind)
 					print ck_list
+
 					return [ck_list, start+seq[j:full]]
+					
+#find start is given a list of strings (arr)
+#and will return the index of any string whose first half-10 does not match any other string
 def find_start(arr):
 	for index, a in enumerate(arr):
 		total = 0
@@ -48,7 +55,8 @@ def merge_string(arr):
 			count+=1
 			print 'count', count				
 	return old_final						
-with open('rosalind_long.txt', 'r') as f:   
+
+with open('seq_long.txt', 'r') as f:   
 	seq_list = []
 	for lin in f:
 		seq_list.append(lin.strip())
